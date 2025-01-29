@@ -1,0 +1,26 @@
+<rss version="2.0">
+  <channel>
+    <title>lili til</title>
+    <link>http://localhost:8000</link>
+    <description>my posts</description>
+    <lastBuildDate>Wed, 29 Jan 2025 15:34:19 EST</lastBuildDate>
+    <item>
+      <title>heyo.md</title>
+      <link>http://localhost:8000/heyo.md</link>
+      <description></description>
+      <pubDate>Wed, 29 Jan 2025 15:13:47 EST</pubDate>
+    </item>
+    <item>
+      <title>hi.md</title>
+      <link>http://localhost:8000/hi.md</link>
+      <description>&lt;h1&gt;til: &lt;TODO: what did you learn?&gt;&lt;/h1&gt;&#xA;&#xA;&lt;!--fill in this section with what you learned!--&gt;&#xA;</description>
+      <pubDate>Wed, 29 Jan 2025 15:23:19 EST</pubDate>
+    </item>
+    <item>
+      <title>template.md</title>
+      <link>http://localhost:8000/template.md</link>
+      <description>&lt;h1&gt;til: &lt;TODO: what did you learn?&gt;&lt;/h1&gt;&#xA;&#xA;&lt;!--fill in this section with what you learned!--&gt;&#xA;</description>
+      <pubDate>Wed, 29 Jan 2025 15:18:13 EST</pubDate>
+    </item>
+  </channel>
+</rss>
