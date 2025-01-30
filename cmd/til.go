@@ -4,6 +4,7 @@ import (
 	"encoding/xml"
 	"fmt"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"strings"
 	"time"
@@ -144,3 +145,41 @@ func Save(title string, content string) {
 	}
 
 }
+
+
+// TODO there is definitely a better way to do this. gh action maybe?
+func Publish() {
+	dir := "/Users/liliwilson/Documents/GitHub/til/"
+	err := os.Chdir(dir)
+	if err != nil {
+		fmt.Println("error with chdir", err)
+        return
+	}
+
+	// git add the "posts/" directory and "rss.xml" file
+	cmd := exec.Command("git", "add", "posts/", "rss.xml")
+	err = cmd.Run()
+	if err != nil {
+		fmt.Println("error with git add", err)
+        return
+	}
+
+	// commit the changes
+	cmd = exec.Command("git", "commit", "-m", "updating rss feed")
+	err = cmd.Run()
+	if err != nil {
+		fmt.Println("error with git push", err)
+        return
+	}
+
+	// push the changes
+	cmd = exec.Command("git", "push")
+	err = cmd.Run()
+	if err != nil {
+		fmt.Println("error with git push", err)
+        return
+	}
+
+	fmt.Println("changes committed and pushed successfully!")
+}
+
