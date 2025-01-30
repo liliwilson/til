@@ -2,14 +2,14 @@ package cmd
 
 import (
 	"encoding/xml"
-	// "errors"
 	"fmt"
 	"os"
 	"path/filepath"
+	"strings"
 	"time"
 
+	tea "github.com/charmbracelet/bubbletea"
 	"github.com/russross/blackfriday/v2"
-	// "github.com/charmbracelet/bubbletea" // TODO make bubbletea editing ui
 )
 
 // RSS-related structs
@@ -34,50 +34,19 @@ type Item struct {
 	PubDate     string `xml:"pubDate"`
 }
 
-func New(filename string) {
-	// TODO add flag to use or not use the template...
-	templateFile := "posts/template.md" // TODO make this a configurable thing
-	postsDir := "./posts"               // TODO make this a configurable thing
-
-	err := os.MkdirAll(postsDir, os.ModePerm)
-	if err != nil {
-		fmt.Printf("error creating directory: %v\n", err)
-		return
-	}
-
-	mdFile := filepath.Join(postsDir, filename+".md")
-
-	if _, err := os.Stat(templateFile); os.IsNotExist(err) {
-		fmt.Printf("template file does not exist: %s\n", templateFile)
-		return
-	}
-
-	templateContent, err := os.ReadFile(templateFile)
-	if err != nil {
-		fmt.Printf("error reading template file: %v\n", err)
-		return
-	}
-
-	err = os.WriteFile(mdFile, templateContent, os.ModePerm)
-	if err != nil {
-		fmt.Printf("error writing to new file: %v\n", err)
-		return
-	}
-}
-
 func Compile() {
 	fmt.Printf("compiling...")
 
-	postsDir := "./posts"              // TODO make this configurable
-	siteURL := "http://localhost:8000" // TODO change to my site URL
+	postsDir := "/Users/liliwilson/Documents/GitHub/til/posts"       // TODO make this configurable
+	siteURL := "https://raw.githubusercontent.com/liliwilson/til/main/rss.xml"
 
 	// initialize rss feed
 	rss := RSS{
 		Version: "2.0",
 		Channel: Channel{
-			Title:         "lili til", // TODO configure
+			Title:         "lili/til", // TODO configure
 			Link:          siteURL,
-			Description:   "my posts",
+			Description:   "my learnings",
 			LastBuildDate: time.Now().Format(time.RFC1123),
 		},
 	}
@@ -100,7 +69,7 @@ func Compile() {
 			// create an RSS item for this post
 			item := Item{
 				Title:       info.Name(),
-				Link:        fmt.Sprintf("%s/%s", siteURL, info.Name()),
+                Link:        fmt.Sprintf("%s/%s", "https://github.com/liliwilson/til/main/posts", info.Name()),
 				Description: string(htmlContent),
 				PubDate:     info.ModTime().Format(time.RFC1123),
 			}
@@ -125,11 +94,50 @@ func Compile() {
 	}
 
 	// write rss feed to a file
-	err = os.WriteFile("rss_feed.xml", output, 0644) // TODO don't hard code file name
+	err = os.WriteFile("rss.xml", output, 0644) // TODO don't hard code file name
 	if err != nil {
 		fmt.Println("error writing XML file:", err)
 		return
 	}
 
 	fmt.Println("rss feed generated successfully!")
+}
+
+
+func Tui() {
+	m := initialModel()
+
+	p := tea.NewProgram(m, tea.WithAltScreen())
+	if _, err := p.Run(); err != nil {
+		fmt.Printf("error starting tui %v\n", err)
+	}
+}
+
+// this function is called by the tea model when we submit a file
+func Save(title string, content string) {
+	filename := strings.ReplaceAll(title, " ", "_")
+	postsDir := "/Users/liliwilson/Documents/GitHub/til/posts"       // TODO make this configurable
+
+	err := os.MkdirAll(postsDir, os.ModePerm)
+	if err != nil {
+		fmt.Printf("error creating directory: %v\n", err)
+		return
+	}
+
+	mdFile := filepath.Join(postsDir, filename+".md")
+
+	file, err := os.Create(mdFile)
+	if err != nil {
+		fmt.Printf("error creating file: %v\n", err)
+		return
+	}
+
+	defer file.Close()
+
+	_, err = file.WriteString(content)
+	if err != nil {
+		fmt.Println("error writing to file:", err)
+		return
+	}
+
 }

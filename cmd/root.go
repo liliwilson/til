@@ -11,7 +11,7 @@ var rootCmd = &cobra.Command{
 	Short: "til is a cli tool for generating rss posts from markdown files",
 	Long:  "til is a cli tool for generating rss posts from markdown files",
 	Run: func(cmd *cobra.Command, args []string) {
-
+        Tui()
 	},
 }
 
