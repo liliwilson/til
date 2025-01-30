@@ -75,7 +75,7 @@ func Compile() {
 
 			item := Item{
                 Title:       title,
-                Link:        fmt.Sprintf("%s/%s", "https://liliwilson.github.io/til/posts", info.Name()),
+                Link:        fmt.Sprintf("%s/%s", "https://github.com/liliwilson/til/main/posts", info.Name()),
 				Description: string(htmlContent),
 				PubDate:     info.ModTime().Format(time.RFC1123),
 			}
