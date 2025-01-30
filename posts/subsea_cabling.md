@@ -1,6 +1,3 @@
-# TIL something cool!
-there are about 1.4 million km of cables in the ocean sending data around the world.
+til that there are approximately 1.4 million km of cables under the water carrying data around the world.
 
-1.4 million km is also, conveniently, about the diameter of the sun!
-
-pretty crazy.
+1.4 million km is also, approximately, the diameter of the sun!
