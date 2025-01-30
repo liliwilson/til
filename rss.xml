@@ -3,7 +3,7 @@
     <title>lili/til</title>
     <link>https://raw.githubusercontent.com/liliwilson/til/main/rss.xml</link>
     <description>my learnings</description>
-    <lastBuildDate>Wed, 29 Jan 2025 20:10:21 EST</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jan 2025 20:14:55 EST</lastBuildDate>
     <item>
       <title>a lot of things</title>
       <link>https://github.com/liliwilson/til/main/posts/a_lot_of_things.md</link>
@@ -21,6 +21,12 @@
       <link>https://github.com/liliwilson/til/main/posts/ok_one_more.md</link>
       <description>&lt;p&gt;another test&lt;/p&gt;&#xA;&#xA;&lt;h1&gt;here is a test&lt;/h1&gt;&#xA;&#xA;&lt;h2&gt;i am just&lt;/h2&gt;&#xA;&#xA;&lt;h4&gt;testing&lt;/h4&gt;&#xA;&#xA;&lt;p&gt;hi&lt;/p&gt;&#xA;</description>
       <pubDate>Wed, 29 Jan 2025 20:04:47 EST</pubDate>
+    </item>
+    <item>
+      <title>subsea cabling</title>
+      <link>https://github.com/liliwilson/til/main/posts/subsea_cabling.md</link>
+      <description>&lt;h1&gt;TIL something cool!&lt;/h1&gt;&#xA;&#xA;&lt;p&gt;there are about 1.4 million km of cables in the ocean sending data around the world.&lt;/p&gt;&#xA;&#xA;&lt;p&gt;1.4 million km is also, conveniently, about the diameter of the sun!&lt;/p&gt;&#xA;&#xA;&lt;p&gt;pretty crazy.&lt;/p&gt;&#xA;</description>
+      <pubDate>Wed, 29 Jan 2025 20:14:49 EST</pubDate>
     </item>
   </channel>
 </rss>
