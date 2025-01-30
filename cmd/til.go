@@ -67,8 +67,11 @@ func Compile() {
 			htmlContent := blackfriday.Run(content)
 
 			// create an RSS item for this post
+            title := strings.TrimSuffix(info.Name(), ".md")
+            title = strings.ReplaceAll(title, "_", " ")
+
 			item := Item{
-				Title:       info.Name(),
+                Title:       "til: " + title,
                 Link:        fmt.Sprintf("%s/%s", "https://github.com/liliwilson/til/main/posts", info.Name()),
 				Description: string(htmlContent),
 				PubDate:     info.ModTime().Format(time.RFC1123),
