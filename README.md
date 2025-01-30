@@ -28,6 +28,6 @@ yep! i have confirmed that it works with `nom`, which is also neat.
 <img width="552" alt="filtering nom" src="https://github.com/user-attachments/assets/d98f3cfb-c5e3-4f8f-b2e2-627c1aae044e" />
 <img width="552" alt="reading my thing" src="https://github.com/user-attachments/assets/edfe4bbc-698f-4e9d-851f-d4b64c619c61" />
 
-i am indeed subscribed to my own rss feed!
+i am indeed subscribed to my own rss feed.
 
 
