@@ -1,8 +1,0 @@
-title: "lili/til"
-exclude:
-  - "*"
-include:
-  - "posts"
-markdown: kramdown
-remote_theme: jekyll/minima
-
