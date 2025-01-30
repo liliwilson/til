@@ -8,7 +8,7 @@ inspired by [nom](https://github.com/guyfedwards/nom?tab=readme-ov-file) and var
 
 ## how does it work?
 
-til is built in go, using [cobra](https://github.com/spf13/cobra) for parsing command line input and [bubbletea](https://www.google.com/search?q=bubbletea&sourceid=chrome&ie=UTF-8) for rendering the tui.
+til is built in go, using [cobra](https://github.com/spf13/cobra) for parsing command line input and [bubbletea]([https://www.google.com/search?q=bubbletea&sourceid=chrome&ie=UTF-8](https://github.com/charmbracelet/bubbletea)) for rendering the tui.
 
 using til is very simple!
 
