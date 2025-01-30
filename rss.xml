@@ -3,28 +3,16 @@
     <title>lili/til</title>
     <link>https://raw.githubusercontent.com/liliwilson/til/main/rss.xml</link>
     <description>my learnings</description>
-    <lastBuildDate>Wed, 29 Jan 2025 20:17:15 EST</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jan 2025 20:24:49 EST</lastBuildDate>
     <item>
       <title>a lot of things</title>
-      <link>https://github.com/liliwilson/til/main/posts/a_lot_of_things.md</link>
+      <link>https://liliwilson.github.io/til/posts/a_lot_of_things.md</link>
       <description>&lt;p&gt;i learned a lot of things today!&lt;/p&gt;&#xA;&#xA;&lt;p&gt;more info coming soon, but for now this is a test.&lt;/p&gt;&#xA;</description>
       <pubDate>Wed, 29 Jan 2025 19:34:48 EST</pubDate>
     </item>
     <item>
-      <title>ok! again</title>
-      <link>https://github.com/liliwilson/til/main/posts/ok!_again.md</link>
-      <description>&lt;p&gt;hope gh doesn&amp;rsquo;t rate limit me&lt;/p&gt;&#xA;</description>
-      <pubDate>Wed, 29 Jan 2025 20:08:25 EST</pubDate>
-    </item>
-    <item>
-      <title>ok one more</title>
-      <link>https://github.com/liliwilson/til/main/posts/ok_one_more.md</link>
-      <description>&lt;p&gt;another test&lt;/p&gt;&#xA;&#xA;&lt;h1&gt;here is a test&lt;/h1&gt;&#xA;&#xA;&lt;h2&gt;i am just&lt;/h2&gt;&#xA;&#xA;&lt;h4&gt;testing&lt;/h4&gt;&#xA;&#xA;&lt;p&gt;hi&lt;/p&gt;&#xA;</description>
-      <pubDate>Wed, 29 Jan 2025 20:04:47 EST</pubDate>
-    </item>
-    <item>
       <title>subsea cabling</title>
-      <link>https://github.com/liliwilson/til/main/posts/subsea_cabling.md</link>
+      <link>https://liliwilson.github.io/til/posts/subsea_cabling.md</link>
       <description>&lt;p&gt;til that there are approximately 1.4 million km of cables under the water carrying data around the world.&lt;/p&gt;&#xA;&#xA;&lt;p&gt;1.4 million km is also, approximately, the diameter of the sun!&lt;/p&gt;&#xA;</description>
       <pubDate>Wed, 29 Jan 2025 20:17:09 EST</pubDate>
     </item>

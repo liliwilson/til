@@ -35,10 +35,12 @@ type Item struct {
 	PubDate     string `xml:"pubDate"`
 }
 
+var path = "/Users/liliwilson/Documents/GitHub/til"
+
 func Compile() {
 	fmt.Printf("compiling...")
 
-	postsDir := "/Users/liliwilson/Documents/GitHub/til/posts"       // TODO make this configurable
+	postsDir := path + "/posts"       // TODO make this configurable
 	siteURL := "https://raw.githubusercontent.com/liliwilson/til/main/rss.xml"
 
 	// initialize rss feed
@@ -72,8 +74,8 @@ func Compile() {
             title = strings.ReplaceAll(title, "_", " ")
 
 			item := Item{
-                Title:       "til: " + title,
-                Link:        fmt.Sprintf("%s/%s", "https://github.com/liliwilson/til/main/posts", info.Name()),
+                Title:       title,
+                Link:        fmt.Sprintf("%s/%s", "https://liliwilson.github.io/til/posts", info.Name()),
 				Description: string(htmlContent),
 				PubDate:     info.ModTime().Format(time.RFC1123),
 			}
@@ -98,7 +100,7 @@ func Compile() {
 	}
 
 	// write rss feed to a file
-	err = os.WriteFile("rss.xml", output, 0644) // TODO don't hard code file name
+    err = os.WriteFile(path + "/rss.xml", output, 0644) // TODO don't hard code file name
 	if err != nil {
 		fmt.Println("error writing XML file:", err)
 		return
@@ -120,7 +122,7 @@ func Tui() {
 // this function is called by the tea model when we submit a file
 func Save(title string, content string) {
 	filename := strings.ReplaceAll(title, " ", "_")
-	postsDir := "/Users/liliwilson/Documents/GitHub/til/posts"       // TODO make this configurable
+	postsDir := path + "/posts"       // TODO make this configurable
 
 	err := os.MkdirAll(postsDir, os.ModePerm)
 	if err != nil {
