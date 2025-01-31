@@ -20,7 +20,7 @@ type `til` into your cli to get this nice little editing screen:
 
 <img width="552" alt="til edit" src="https://github.com/user-attachments/assets/4a3c524c-7aba-4848-8965-0394c63546bf" />
 
-then, `til compile` will generate an rss feed and `til publish` will send it over to this github repo. sorry, i have not made this usable for other people yet :p
+then, `til publish` will send it over to this github repo to be published on my gh pages. sorry, i have not made this usable for other people yet :p
 
 ## anything else cool?
 yep! i have confirmed that it works with `nom`, which is also neat.
