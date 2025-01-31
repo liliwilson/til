@@ -40,7 +40,7 @@ var path = "/Users/liliwilson/Documents/GitHub/til"
 func Compile() {
 	fmt.Printf("compiling...")
 
-	postsDir := path + "/posts"       // TODO make this configurable
+	postsDir := path + "/posts" // TODO make this configurable
 	siteURL := "https://raw.githubusercontent.com/liliwilson/til/main/rss.xml"
 
 	// initialize rss feed
@@ -70,12 +70,12 @@ func Compile() {
 			htmlContent := blackfriday.Run(content)
 
 			// create an RSS item for this post
-            title := strings.TrimSuffix(info.Name(), ".md")
-            title = strings.ReplaceAll(title, "_", " ")
+			title := strings.TrimSuffix(info.Name(), ".md")
+			title = strings.ReplaceAll(title, "_", " ")
 
 			item := Item{
-                Title:       title,
-                Link:        fmt.Sprintf("%s/%s", "https://github.com/liliwilson/til/main/posts", info.Name()),
+				Title:       title,
+				Link:        fmt.Sprintf("%s/%s", "https://github.com/liliwilson/til/main/posts", info.Name()),
 				Description: string(htmlContent),
 				PubDate:     info.ModTime().Format(time.RFC1123),
 			}
@@ -100,7 +100,7 @@ func Compile() {
 	}
 
 	// write rss feed to a file
-    err = os.WriteFile(path + "/rss.xml", output, 0644) // TODO don't hard code file name
+	err = os.WriteFile(path+"/rss.xml", output, 0644) // TODO don't hard code file name
 	if err != nil {
 		fmt.Println("error writing XML file:", err)
 		return
@@ -108,7 +108,6 @@ func Compile() {
 
 	fmt.Println("rss feed generated successfully!")
 }
-
 
 func Tui() {
 	m := initialModel()
@@ -121,8 +120,15 @@ func Tui() {
 
 // this function is called by the tea model when we submit a file
 func Save(title string, content string) {
-	filename := strings.ReplaceAll(title, " ", "_")
-	postsDir := path + "/posts"       // TODO make this configurable
+	filename := strings.ReplaceAll(title, " ", "-")
+	postsDir := path + "/_posts" // TODO make this configurable
+
+	currentDate := time.Now().Format("2006-01-02")
+	jekyll_header := fmt.Sprintf(`---
+title: %s
+date: %s
+layout: plain
+---`, title, currentDate)
 
 	err := os.MkdirAll(postsDir, os.ModePerm)
 	if err != nil {
@@ -130,7 +136,7 @@ func Save(title string, content string) {
 		return
 	}
 
-	mdFile := filepath.Join(postsDir, filename+".md")
+	mdFile := filepath.Join(postsDir, currentDate+"-"+filename+".md")
 
 	file, err := os.Create(mdFile)
 	if err != nil {
@@ -140,7 +146,7 @@ func Save(title string, content string) {
 
 	defer file.Close()
 
-	_, err = file.WriteString(content)
+	_, err = file.WriteString(jekyll_header + "\n" + content)
 	if err != nil {
 		fmt.Println("error writing to file:", err)
 		return
@@ -148,14 +154,13 @@ func Save(title string, content string) {
 
 }
 
-
 // TODO there is definitely a better way to do this. gh action maybe?
 func Publish() {
 	dir := "/Users/liliwilson/Documents/GitHub/til/"
 	err := os.Chdir(dir)
 	if err != nil {
 		fmt.Println("error with chdir", err)
-        return
+		return
 	}
 
 	// git add the "posts/" directory and "rss.xml" file
@@ -163,7 +168,7 @@ func Publish() {
 	err = cmd.Run()
 	if err != nil {
 		fmt.Println("error with git add", err)
-        return
+		return
 	}
 
 	// commit the changes
@@ -171,7 +176,7 @@ func Publish() {
 	err = cmd.Run()
 	if err != nil {
 		fmt.Println("error with git push", err)
-        return
+		return
 	}
 
 	// push the changes
@@ -179,9 +184,8 @@ func Publish() {
 	err = cmd.Run()
 	if err != nil {
 		fmt.Println("error with git push", err)
-        return
+		return
 	}
 
 	fmt.Println("changes committed and pushed successfully!")
 }
-
