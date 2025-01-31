@@ -1,0 +1,50 @@
+body {
+    font-family: monospace;
+    background: #fff;
+    margin: 20px auto;
+    max-width: 900px;
+    padding: 20px;
+}
+
+p {
+    line-height:1.5;
+    padding-top:2em;
+}
+
+.attr {
+    text-align: right;
+}
+
+.footer {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    width: 70em;
+    height: auto;
+}
+
+
+a {
+    color: #0000EE;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
