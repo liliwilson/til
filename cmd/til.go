@@ -123,19 +123,27 @@ func Save(title string, content string) {
 	filename := strings.ReplaceAll(title, " ", "-")
 	postsDir := path + "/_posts" // TODO make this configurable
 
-	currentDate := time.Now().Format("2006-01-02")
+    loc, err := time.LoadLocation("America/New_York")
+	if err != nil {
+		fmt.Println("Error loading location:", err)
+		return
+	}
+	currentTime := time.Now().In(loc)
+
+	formattedTime := currentTime.Format("2006-01-02 15:04:05 -0700")
 	jekyll_header := fmt.Sprintf(`---
-title: %s
+title: %s 
 date: %s
 layout: plain
----`, title, currentDate)
+---`, title, formattedTime)
 
-	err := os.MkdirAll(postsDir, os.ModePerm)
+	err = os.MkdirAll(postsDir, os.ModePerm)
 	if err != nil {
 		fmt.Printf("error creating directory: %v\n", err)
 		return
 	}
 
+    currentDate := currentTime.Format("2006-01-02")
 	mdFile := filepath.Join(postsDir, currentDate+"-"+filename+".md")
 
 	file, err := os.Create(mdFile)
