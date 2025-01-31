@@ -76,7 +76,7 @@ func Publish() {
 	}
 
 	// git add the "posts/" directory and "rss.xml" file
-	cmd := exec.Command("git", "add", "posts/", "rss.xml")
+	cmd := exec.Command("git", "add", "_posts/", "rss.xml")
 	err = cmd.Run()
 	if err != nil {
 		fmt.Println("error with git add", err)
