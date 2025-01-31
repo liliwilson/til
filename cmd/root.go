@@ -8,8 +8,8 @@ import (
 
 var rootCmd = &cobra.Command{
 	Use:   "til",
-	Short: "til is a cli tool for generating rss posts from markdown files",
-	Long:  "til is a cli tool for generating rss posts from markdown files",
+	Short: "post to my rss feed!",
+	Long:  "til is a cli tool for publishing rss posts from markdown files",
 	Run: func(cmd *cobra.Command, args []string) {
         Tui()
 	},
