@@ -38,6 +38,7 @@ func initialModel() model {
 	ta.Placeholder = "your markdown here..."
 	ta.Cursor.Style = cursorStyle
 	ta.ShowLineNumbers = true
+    ta.CharLimit = 0
 	ta.SetWidth(100)
 	ta.SetHeight(20)
 
