@@ -13,12 +13,16 @@ there are a few subtypes of TLDs:
 
 these are all managed by ICANN, a nonprofit that holds a lot of internet-related power in its hands (and, if you read its information about how its board is structured and how decisions are made, you can see that this power is not lost on them!)
 
+
+
 ## so, what else did you learn?
 in 2012, ICANN started a program called the "New gTLD Program" aimed at expanding the number of top level domains. 
 
 to get a new gTLD, an organization/business has to submit an application to ICANN, pay a $185,000 application fee, and explain what you want to use the gTLD for. after the 2012 round of this program, we went from 22 gTLDs to over 1000. they also accept applications for gTLDs in a variety of scripts (including arabic, chinese, and cyrillic)
 
 the next application round is likely going to be in 2026!
+
+
 
 ## do you have favorite TLDs?
 great question! you can browse all of the TLDs on [this website](https://www.iana.org/domains/root/db).
